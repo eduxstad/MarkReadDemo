@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">MarkReadDemo</string>
+    <string name="channel_name">Sample Notifications</string>
+    <string name="channel_description">Used to send the sample notification</string>
+    <string name="reply_label">Reply with a message</string>
+    <string name="reply">Reply</string>
+</resources>
