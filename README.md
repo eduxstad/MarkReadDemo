@@ -1,8 +1,8 @@
 # MarkReadDemo
-A reproduction of Android's `NotificationManager.cancel()` unexpected behavior
+A reproduction of Android's `NotificationManagerCompat.cancel()` unexpected behavior
 
 This demo was created as a result of looking into a [Signal Messenger bug](https://github.com/signalapp/Signal-Android/issues/9410). 
-In short, attempting  to cancel a notification while it is processing a inline reply fails, 
+In short, attempting  to cancel a notification while it is processing an inline reply fails, 
 causing the reply to be psuedo processed with subsequent attempts to cancel the notification also failing. 
 In practical terms, this means that Signal's "Mark Read" button fails to work after inline replying to the message. 
 
@@ -22,12 +22,12 @@ Now an inline reply is sent. It is not procesed or added to the notification bec
 ![Image of loading reply](images/reply.png)
 
 At this point the notification is attempted to be cleared by using one of the clear buttons in the app. 
-They call `NotificationManager.clear(Id id)` and NotificationManager.clearAll()` repectively. 
+They call `NotificationManager.clear(Id id)` and `NotificationManager.clearAll()` repectively. 
 The notification is not cleared and instead the reply is processed and added to the notification. 
 
 ![Image of failed clear](images/clear.png)
 
-Now the notification cannot be cleared by `NotificationManager` at all but can be cleared by the user swiping away the notification. 
+Now the notification cannot be cleared by `NotificationManager` at all and can apparently only be cleared by the user swiping away the notification. 
 Because `NotificationManager` cannot cancel the notification, the 'Clear' action no longer works. This situation is analogous to the bug faced by Signal. 
 
 ## Other unknowns and caveats
@@ -48,5 +48,5 @@ One possible explanation for this behavior is described in the [documentation]
 > it will be removed from the UI and live notification listeners will be informed so they can remove the notification from their UIs.
 
 If somehow the notification represented a foreground service it may not wish to be cancelled. 
-However, as there are no foreground services being used in this demo (and no way to stop on), it is still unexpected that this behavior is occurring. 
+However, as there are no foreground services being used in this demo (and no way to stop one), it is still seems unexpected that this behavior is occurring. 
 
