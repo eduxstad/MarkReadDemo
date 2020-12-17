@@ -41,8 +41,7 @@ the reply should not be added unless the notification is updated with 'Messaging
 I've noticed that the `Person` is the same as the sender (Isaac Asimov) and that ocassionally the reply will maintain the underline of the input text. 
 
 ### Interference from Foreground Services
-One possible explanation for this behavior is described in the [documentation]
-(https://developer.android.com/reference/android/app/NotificationManager?hl=en#cancel(java.lang.String,%20int)) for `NotificationManager.cancel(Id id)`.
+One possible explanation for this behavior is described in the [documentation]( https://developer.android.com/reference/android/app/NotificationManager?hl=en#cancel(java.lang.String,%20int) ) for `NotificationManager.cancel(Id id)`.
 
 > If the notification does not currently represent a Service#startForeground(int, Notification), 
 > it will be removed from the UI and live notification listeners will be informed so they can remove the notification from their UIs.
