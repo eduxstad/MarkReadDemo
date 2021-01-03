@@ -1,3 +1,5 @@
+## This issue has been reported to Google [here](https://issuetracker.google.com/issues/175851630). 
+
 # MarkReadDemo
 A reproduction of Android's `NotificationManagerCompat.cancel()` unexpected behavior
 
